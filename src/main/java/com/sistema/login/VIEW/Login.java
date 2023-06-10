@@ -17,6 +17,8 @@ public class Login extends JFrame{
     private JPanel Painel;
 
     public Login() {
+
+
         ConfiguracoesDoPainel();
 
         entrarButton.addActionListener(new ActionListener() {
@@ -39,7 +41,7 @@ public class Login extends JFrame{
 
                 if(rsLoginDAO.next()){
                     //Chamar a tela que quero abrir
-                    Estoque estoque = new Estoque();
+                    Estoque estoque = new Estoque(objLoginDTO.getUsuario());
                     estoque.setVisible(true);
 
                     dispose();
@@ -52,7 +54,6 @@ public class Login extends JFrame{
             }catch (SQLException erro){
                 JOptionPane.showMessageDialog(null,"Erro na view Login " + erro);
             }
-
             }
         });
     }
@@ -71,4 +72,5 @@ public class Login extends JFrame{
         setVisible(true);
         //Botões
     }
+
 }

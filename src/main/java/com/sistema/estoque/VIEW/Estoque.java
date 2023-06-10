@@ -1,5 +1,6 @@
 package com.sistema.estoque.VIEW;
 
+import com.sistema.login.DTO.LoginDTO;
 import com.sistema.login.VIEW.Login;
 
 import javax.swing.*;
@@ -8,11 +9,15 @@ import java.awt.event.ActionListener;
 
 public class Estoque extends JFrame {
 
-
+    private String nome;
     private JPanel PainelEstoque;
     private JButton inicioButton;
+    private JLabel Bemvindo;
 
-    public Estoque(){
+    public Estoque(String nomeUsuario){
+        this.nome = nomeUsuario;
+        bemvindo();
+
         ConfiguracoesDoPainel();
         inicioButton.addActionListener(new ActionListener() {
             @Override
@@ -21,6 +26,7 @@ public class Estoque extends JFrame {
                 login.setVisible(true);
 
                 dispose();
+
             }
         });
     }
@@ -33,6 +39,10 @@ public class Estoque extends JFrame {
         setLocationRelativeTo(null); // centraliza a janela na tela
         setVisible(true);
         //Botões
+    }
+    public void bemvindo(){
+        Bemvindo.setText("Bem vindo " + nome);
+
     }
 
 }
